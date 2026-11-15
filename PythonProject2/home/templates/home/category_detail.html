@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ category_name }} — BMW подбор</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <a href="{% url 'index' %}" class="btn-back">← Вернуться к выбору типа кузова</a>
+
+        <h1>{{ category_name }}</h1>
+        <p class="category-desc">{{ description }}</p>
+
+        <!-- Сетка карточек с авто -->
+        <div class="cars-grid">
+            {% for car in cars %}
+                <div class="car-card">
+                    <div class="car-image-wrapper">
+                        <img src="{% static 'home/images/'|add:car.image %}"
+                             alt="{{ car.name }}"
+                             class="car-img"
+                             onerror="this.style.display='none'; this.parentElement.style.background='#1a1a25';">
+                    </div>
+                    <h2 class="car-name">{{ car.name }}</h2>
+                    <p class="car-desc">{{ car.desc }}</p>
+                    <div class="car-footer">
+                        <span class="car-price">{{car.price}}</span>
+                        <a href="#" class="btn-small">Подробнее</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

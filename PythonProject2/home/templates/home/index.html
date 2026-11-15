@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Подбор BMW — выберите тип кузова</title>
+    {% load static %}
+     <!-- ФАВИКОН: вставляем сюда -->
+    <link rel="icon" href="{% static 'home/favicon.ico' %}" type="image/x-icon">
+    <!-- Подключаем стили -->
+    <link rel="stylesheet" href="{% static 'home/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Выберите тип кузова</h1>
+        <p>Подберём BMW под ваш стиль и задачи.</p>
+
+        <!-- Ряд аккуратных кнопок -->
+        <div class="buttons-row">
+            <a href="{% url 'category_suv' %}" class="btn">Внедорожники</a>
+            <a href="{% url 'category_sedan' %}" class="btn">Седаны</a>
+            <a href="{% url 'category_coupe' %}" class="btn">Купе</a>
+            <a href="{% url 'category_cabriolet' %}" class="btn">Кабриолеты</a>
+            <a href="{% url 'category_wagon' %}" class="btn">Универсалы</a>
+            <a href="{% url 'category_hatchback' %}" class="btn">Хэтчбеки</a>
+        </div>
+
+        <!-- Фото под кнопками -->
+    <img src="{% static 'home/images/demo.jpg' %}" alt="Стильный BMW" class="hero-image">
+</div>
+</body>
+</html>
